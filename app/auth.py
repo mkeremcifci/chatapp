@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from passlib.context import CryptContext
-from .security import verifyPassword, createAccessToken
-from .models import loginRequest
+from app.security import verifyPassword, createAccessToken
+from app.models import loginRequest
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
