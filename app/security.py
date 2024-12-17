@@ -10,7 +10,7 @@ def verifyPassword(plainPassword, hashedPassword):
     return pwdContext.verify(plainPassword, hashedPassword)
 
 
-def createAccessToken(username:str):
-    toEncode = {"sub":username}
+def createAccessToken(id:int):
+    toEncode = {"sub":id}
     encodeJWT = jwt.encode(toEncode, SECRET_KEY, algorithm=ALGORITHM)
     return encodeJWT
