@@ -3,7 +3,7 @@ from passlib.context import CryptContext
 
 pwdContext = CryptContext(schemes=["bcrypt"], deprecated = "auto")
 
-SECRET_KEY = "key"
+SECRET_KEY = "secret_key"
 ALGORITHM = "HS256"
 
 def hashPassword(password:str)->str:

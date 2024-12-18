@@ -13,7 +13,7 @@ while True:
     if a == 1:
         response = requests.post(
             TOKEN_URL,
-            json={"username":"john_doe", "password":"password"}
+            json={"username":"Kerem", "password":"password"}
         )
         if response.status_code == 200:
             data["token"] = response.json().get("access_token")
