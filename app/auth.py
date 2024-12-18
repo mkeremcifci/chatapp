@@ -16,14 +16,14 @@ async def getToken(data: loginRequest):
     password = data.password
     db = SessionLocal()
     try:
-        id = DatabaseManager.getIdByUsername(db,username)
-        
-        fakeHashedPassword = pwd_context.hash("password")
-        if id is None:
+        hashedPassword = DatabaseManager.getHashedPasswordByUsername(db,username)
+
+        if hashedPassword is None:
             raise HTTPException(status_code=401, detail="Invalid credentials")
         else:
-            if not verifyPassword(password, fakeHashedPassword):
+            if not verifyPassword(password, hashedPassword):
                 raise HTTPException(status_code=401, detail="Invalid credentials")
+            id = DatabaseManager.getIdByUsername(db, username)
             accessToken = createAccessToken(id=id)
             return {"access_token": accessToken, "token_type":"bearer"}
     finally:

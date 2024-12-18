@@ -1,16 +1,16 @@
 from app.database.crud import DatabaseManager
 from app.database.database import SessionLocal
-from sqlalchemy.orm import Session
+
+
 
 
 db = SessionLocal()
 try:
-    username = "john_doe"
-    password = DatabaseManager.getPasswordByUsername(db, username)
-    
-    if password:
-        print(f"Kullanıcı adı:{username} - parola {password}")
-    else:
-        print(f"{username} kullanıcısı bulunamadı")
+    username = "Kerem"
+    password = "password"
+    bio = "Just a user 2"
+
+    DatabaseManager.addNewUser(db, username=username, password = password, bio=bio)
+
 finally:
     db.close()

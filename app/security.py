@@ -6,6 +6,10 @@ pwdContext = CryptContext(schemes=["bcrypt"], deprecated = "auto")
 SECRET_KEY = "key"
 ALGORITHM = "HS256"
 
+def hashPassword(password:str)->str:
+    return pwdContext.hash(password)
+
+
 def verifyPassword(plainPassword, hashedPassword):
     return pwdContext.verify(plainPassword, hashedPassword)
 

@@ -19,7 +19,7 @@ while True:
             data["token"] = response.json().get("access_token")
             print(f"Token: {data["token"]}"),
         else:
-            print(f"Token alınamdaı. Hata {response.status_code} - {response.text}")
+            print(f"Token alınamadı. Hata {response.status_code} - {response.text}")
     if a == 2:
         response = requests.post(
             VERIFY_TOKEN_URL,
